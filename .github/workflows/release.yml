@@ -24,9 +24,11 @@ jobs:
         target:
           - {arc: 'x86_64', container: 'messense/manylinux2014-cross:x86_64'}
           - {arc: 'x86', container: 'messense/manylinux2014-cross:i686'}
-          - {arc: 'aarch64', container: 'ghcr.io/rust-cross/manylinux2014-cross:aarch64'}
-          - {arc: 'armv7', container: 'ghcr.io/rust-cross/manylinux2014-cross:armv7'}
-          - {arc: 's390x', container: 'ghcr.io/rust-cross/manylinux2014-cross:s390x'}
+          - {arc: 'aarch64', container: 'messense/manylinux2014-cross:aarch64'}
+          - {arc: 'armv7', container: 'messense/manylinux2014-cross:armv7'}
+          - {arc: 's390x', container: 'messense/manylinux2014-cross:s390x'}
+          - {arc: 'ppc64', container: 'messense/manylinux2014-cross:ppc64'}
+          - {arc: 'ppc64le', container: 'messense/manylinux2014-cross:ppc64le'}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
