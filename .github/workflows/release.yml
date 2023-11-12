@@ -35,9 +35,10 @@ jobs:
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
-          target: ${{ matrix.target }}
+          target: ${{ matrix.target.arc }}
           args: --release --out dist --find-interpreter
           sccache: true
+          container: ${{ matrix.target.container }}
           manylinux: auto
           before-script-linux: apt install libssl-dev -y
       - name: Upload wheels
