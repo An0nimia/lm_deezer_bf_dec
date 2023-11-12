@@ -22,11 +22,11 @@ jobs:
     strategy:
       matrix:
         target:
-          - {arc: 'x86_64', container: 'quay.io/pypa/manylinux2014_x86_64:latest'}
-          - {arc: 'x86', container: 'quay.io/pypa/manylinux_2_24_i686:latest'}
-          - {arc: 'aarch64', container: 'ghcr.io/rust-cross/manylinux2014-cross:aarch64'}
-          - {arc: 'armv7', container: 'ghcr.io/rust-cross/manylinux2014-cross:armv7'}
-          - {arc: 's390x', container: 'ghcr.io/rust-cross/manylinux2014-cross:s390x'}
+          - {arc: 'x86_64', container: 'messense/manylinux2014-cross:x86_64'}
+          #- {arc: 'x86', container: 'messense/manylinux2014-cross:i686'}
+          #- {arc: 'aarch64', container: 'ghcr.io/rust-cross/manylinux2014-cross:aarch64'}
+          #- {arc: 'armv7', container: 'ghcr.io/rust-cross/manylinux2014-cross:armv7'}
+          #- {arc: 's390x', container: 'ghcr.io/rust-cross/manylinux2014-cross:s390x'}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
@@ -39,7 +39,6 @@ jobs:
           container: ${{ matrix.target.container }}
           args: --release --out dist --find-interpreter
           sccache: 'true'
-          manylinux: auto
           before-script-linux: apt install libssl-dev -y
       - name: Upload wheels
         uses: actions/upload-artifact@v3
