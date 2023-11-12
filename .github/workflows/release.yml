@@ -21,7 +21,12 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        target: [x86_64, x86, aarch64, armv7, s390x]
+        target:
+          - {arc: x86_64, container: quay.io/pypa/manylinux2014_x86_64:latest}
+          - {arc: x86, container: quay.io/pypa/manylinux2014_i686:latest}
+          - {arc: aarch64, container: ghcr.io/rust-cross/manylinux2014-cross:aarch64}
+          - {arc: armv7, container: ghcr.io/rust-cross/manylinux2014-cross:armv7}
+          - {arc: s390x, container: ghcr.io/rust-cross/manylinux2014-cross:s390x}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
@@ -30,10 +35,12 @@ jobs:
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
-          target: ${{ matrix.target }}
+          target: ${{ matrix.target.arc }}
+          container: ${{ matrix.target.container }}
           args: --release --out dist --find-interpreter
           sccache: 'true'
           manylinux: auto
+          before-script-linux: apt install libssl-dev -y
       - name: Upload wheels
         uses: actions/upload-artifact@v3
         with:
