@@ -23,7 +23,7 @@ jobs:
       matrix:
         target:
           - {arc: 'x86_64', container: 'quay.io/pypa/manylinux2014_x86_64:latest'}
-          - {arc: 'x86', container: 'quay.io/pypa/manylinux_2_24_i686:latest'}
+          #- {arc: 'x86', container: 'quay.io/pypa/manylinux_2_24_i686:latest'}
           - {arc: 'aarch64', container: 'ghcr.io/rust-cross/manylinux2014-cross:aarch64'}
           - {arc: 'armv7', container: 'ghcr.io/rust-cross/manylinux2014-cross:armv7'}
           - {arc: 's390x', container: 'ghcr.io/rust-cross/manylinux2014-cross:s390x'}
