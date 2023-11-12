@@ -1,3 +1,3 @@
 #!/bin/bash
 
-maturin build -r --sdist
+maturin build -r --sdist 
