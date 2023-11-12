@@ -1,0 +1,27 @@
+[build-system]
+requires = ['maturin>=1.3,<2.0']
+build-backend = 'maturin'
+
+[project]
+name = 'lm_deezer_bf_dec'
+requires-python = '>=3.8'
+authors = [
+  { name='An0nimia', email='an0nimia@protonmail.com' },
+]
+description = 'A simple RUST package with scope to speed up the blowfish decryption process for deezer tracks.'
+readme = 'README.md'
+classifiers = [
+    'Programming Language :: Rust',
+    'Programming Language :: Python :: Implementation :: CPython',
+    'Programming Language :: Python :: Implementation :: PyPy',
+    'Development Status :: 4 - Beta',
+    
+]
+dynamic = ['version']
+
+[tool.maturin]
+features = ['pyo3/extension-module']
+
+[project.urls]
+'Homepage' = 'https://github.com/an0nimia/lm_deezer_bf_dec'
+'Bug Tracker' = 'https://github.com/an0nimia/lm_deezer_bf_dec/issues'
