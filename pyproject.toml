@@ -21,6 +21,7 @@ dynamic = ['version']
 
 [tool.maturin]
 features = ['pyo3/extension-module']
+exclude = ['.github/*/*', 'build.sh', '.gitignore']
 
 [project.urls]
 'Homepage' = 'https://github.com/an0nimia/lm_deezer_bf_dec'

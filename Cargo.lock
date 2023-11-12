@@ -476,7 +476,7 @@ checksum = "da2479e8c062e40bf0066ffa0bc823de0a9368974af99c9f6df941d2c231e03f"
 
 [[package]]
 name = "lm_deezer_bf_dec"
-version = "0.0.1-beta.1"
+version = "0.0.1-beta.2"
 dependencies = [
  "blowfish",
  "cbc",
